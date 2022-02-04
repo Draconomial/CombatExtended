@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+<Operation Class="PatchOperationFindMod">
+    <mods>
+		<li>Gas Traps And Shells</li>
+    </mods>
+	<match Class="PatchOperationAdd">
+		<xpath>Defs</xpath>
+		<value>
+			<CombatExtended.AmmoCategoryDef>
+				<defName>GasToxic</defName>
+				<label>lust gas</label>
+				<labelShort>Lust</labelShort>
+				<description>This shell contains a potent, aphrodesiac that causes pawns to get horny fast.</description>
+			</CombatExtended.AmmoCategoryDef>
+		</value>							
+	</match>
+</Operation>
+</Patch>		
