@@ -118,7 +118,7 @@
 					<explosiveDamageType>Smoke</explosiveDamageType>
 					<explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
 					<startWickHitPointsPercent>0.333</startWickHitPointsPercent>
-					<postExplosionSpawnThingDef>Gas_Aphrodesiac</postExplosionSpawnThingDef>
+					<postExplosionSpawnThingDef>Gas_Aphrodisiac</postExplosionSpawnThingDef>
 					<postExplosionSpawnChance>1.0</postExplosionSpawnChance>
 					<wickTicks>
 					<min>10</min>

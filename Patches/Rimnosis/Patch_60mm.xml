@@ -42,7 +42,7 @@
 						<explosiveRadius>4.5</explosiveRadius>
 						<explosiveDamageType>Bomb</explosiveDamageType>
 						<startWickHitPointsPercent>0.7</startWickHitPointsPercent>
-						<postExplosionSpawnThingDef>Gas_Aphrodesiac</postExplosionSpawnThingDef>
+						<postExplosionSpawnThingDef>Gas_Aphrodisiac</postExplosionSpawnThingDef>
 						<preExplosionSpawnChance>1</preExplosionSpawnChance>
 							<explodeOnKilled>True</explodeOnKilled>
 						<wickTicks>30~3000</wickTicks>
@@ -77,7 +77,7 @@
 					  <soundExplode>Explosion_EMP</soundExplode>
 					  <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
 					  <soundAmbient>MortarRound_Ambient</soundAmbient>
-					  <postExplosionSpawnThingDef>Gas_Aphrodesiac</postExplosionSpawnThingDef>
+					  <postExplosionSpawnThingDef>Gas_Aphrodisiac</postExplosionSpawnThingDef>
 					  <preExplosionSpawnChance>1</preExplosionSpawnChance>
 					  <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
 					  <explosionEffect>ExtinguisherExplosion</explosionEffect>
