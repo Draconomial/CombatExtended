@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+<Operation Class="PatchOperationFindMod">
+    <mods>
+		<li>Rimnosis - NSFW</li>
+    </mods>
+	<match Class="PatchOperationSequence">		
+		<operations>
+			
+			<!-- Change gas colors to better fit gaz type/texture colors... -->
+		
+			<li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="LustGas"]/graphicData/color</xpath>
+			<value>
+				<color>(0.8,0.3,0.9,0.3)</color>
+			</value>
+			</li>
+						
+			<!-- Change shell textures -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="Shell_GasLust"]/graphicData</xpath>
+				<value>
+					<graphicData>
+						<texPath>ThirdParty/GasTraps/Mortar</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<shaderType>CutoutComplex</shaderType>
+						<color>(252,134,232)</color>
+					</graphicData>
+				</value>
+			</li>
+			
+			<!-- Change projectile textures -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="Bullet_Shell_GasLust"]/graphicData</xpath>
+				<value>
+					<graphicData>
+						<texPath>ThirdParty/GasTraps/gas_mortar_projectile</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<shaderType>CutoutComplex</shaderType>
+						<color>(252,134,232)</color>
+					</graphicData>
+				</value>
+			</li>
+			
+			<!-- Change shell names to better fit Combat Extended -->
+			
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="Shell_GasLust"]/label</xpath>
+				<value>
+				<label>81mm mortar shell (Lust)</label>
+				</value>
+			</li>		
+		</operations>
+	</match>
+</Operation>
+</Patch>		

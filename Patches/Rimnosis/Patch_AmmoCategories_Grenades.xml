@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+<Operation Class="PatchOperationFindMod">
+    <mods>
+		<li>Rimnosis - NSFW</li>
+    </mods>
+	<match Class="PatchOperationSequence">		
+		<operations>
+		
+		<li Class="PatchOperationAdd">
+		<xpath>Defs</xpath>
+		<value>
+			   <CombatExtended.AmmoCategoryDef>
+					<defName>Lust</defName>
+					<label>Lust gas</label>
+					<description>Filled with a potent aphrodisiac that causes pawns to get horny fast.</description>
+					<advanced>true</advanced>
+				</CombatExtended.AmmoCategoryDef>
+				</value>
+				</li>
+		</operations>
+	</match>
+</Operation>
+</Patch>

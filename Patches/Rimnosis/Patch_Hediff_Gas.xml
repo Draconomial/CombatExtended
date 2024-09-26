@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+<Operation Class="PatchOperationFindMod">
+    <mods>
+		<li>Rimnosis - NSFW</li>
+    </mods>
+	<match Class="PatchOperationSequence">		
+		<operations>
+		
+		<!-- Change Mechanoid Virus to [pending], and make descriptions less cringy... -->
+	<!--	
+		<li Class="PatchOperationReplace">
+				<xpath>Defs/HediffDef[defName="LustGas"]/description</xpath>
+				<value>
+				<description>Potent airborne aphrodisiac. Affects decision making and bodily responses to other beings. Can cause addiction to physical intimacy and lead to severe dehydration and physical exertion.</description>
+				</value>
+			</li>
+	-->	
+		</operations>
+	</match>
+</Operation>
+</Patch>

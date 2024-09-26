@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+<Operation Class="PatchOperationFindMod">
+    <mods>
+		<li>Rimnosis - NSFW</li>
+    </mods>
+	<match Class="PatchOperationSequence">		
+		<operations>
+		
+		<!-- Changing names & descs of gas traps -->
+		
+		<li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="LustTrap"]/label</xpath>
+			<value>
+				<label>IED aphrodisiac gas trap</label>
+			</value>
+		</li>
+		
+		<li Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="LustTrap"]/description</xpath>
+			<value>
+				<description>An aphrodisiac gas shell connected to a trigger which detonates on touch or bullet impact. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+			</value>
+		</li>	
+		</operations>
+	</match>
+</Operation>
+</Patch>
