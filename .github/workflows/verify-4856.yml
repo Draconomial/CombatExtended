@@ -18,6 +18,7 @@ jobs:
       run: |
         rm -rf AssemblyPublicizer csc.zip csc
         git clone https://github.com/CombatExtended-Continued/AssemblyPublicizer
+        git -C AssemblyPublicizer checkout 48b0df20ab1540c238bf7cfaaf7dfb784bd5a039
         mkdir -p Assemblies
         mkdir -p ${{ runner.temp }}/downloads
 
