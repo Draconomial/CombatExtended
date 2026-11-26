@@ -1,0 +1,55 @@
+name: Verify PR 4856 build
+on:
+  push:
+    branches: [ ci/verify-4856 ]
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-26.04
+
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: bf6525a7dfab41de036438e1bc6a78d15e55ec9e
+        persist-credentials: false
+    - name: prebuild
+      run: |
+        rm -rf AssemblyPublicizer csc.zip csc
+        git clone https://github.com/CombatExtended-Continued/AssemblyPublicizer
+        mkdir -p Assemblies
+        mkdir -p ${{ runner.temp }}/downloads
+
+        # grab Mono for AssemblyPublicizer
+        sudo apt update
+        sudo apt install mono-devel
+    - uses: actions/setup-dotnet@v6
+      with:
+        # Note: Runners may have different, newer .NET SDKs preinstalled.
+        # Use global.json to control the maximum acceptable version.
+        dotnet-version: '10.x'
+    - name: remove loader
+      run: |
+        rm Assemblies/CombatExtendedLoader.dll
+        
+    - name: build core
+      run: |
+        export CSC="/usr/share/dotnet/sdk/$(dotnet --version)/Roslyn/bincore/csc"
+        export SDK_LIBS_PATH="/usr/share/dotnet/shared/Microsoft.NETCore.App/$(ls /usr/share/dotnet/shared/Microsoft.NETCore.App | sort -n | tail -n1)"
+        
+        sed -i "s_UNKNOWN_$(git rev-parse HEAD | head -c 10)-dev_" Source/CombatExtended/Version.cs
+        TEMP=${{ runner.temp }}/ python Make.py --csproj Source/CombatExtended/CombatExtended.csproj --output Assemblies/CombatExtended.dll --download-libs --all-libs --publicizer $PWD/AssemblyPublicizer --csc "$CSC"
+        
+    - name: build compat
+      run: |
+        export CSC="/usr/share/dotnet/sdk/$(dotnet --version)/Roslyn/bincore/csc"
+        export SDK_LIBS_PATH="/usr/share/dotnet/shared/Microsoft.NETCore.App/$(ls /usr/share/dotnet/shared/Microsoft.NETCore.App | sort -n | tail -n1)"
+
+        TEMP=${{ runner.temp }}/ python BuildCompat.py --csc "$CSC"
+        
+    - name: package
+      run: |
+        mkdir CombatExtended
+        cp -r Source/ Assemblies/ About/ Defs/ Languages/ Patches/ Royalty/ Ideology/ Biotech/ Anomaly/ Odyssey/ Sounds/ Textures/ ModPatches/ LoadFolders.xml README.md SupportedThirdPartyMods.md CombatExtended
+        zip -9 -r build.zip CombatExtended
